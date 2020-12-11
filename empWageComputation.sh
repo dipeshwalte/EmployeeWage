@@ -6,6 +6,7 @@ fullDayHour=8
 workingDaysInMonth=0
 wagesForMonth=0
 workingHours=0
+day=0
 getWorkHours(){
 	if [ $1 -eq 0 ]
 	then
@@ -16,6 +17,8 @@ getWorkHours(){
 }
 while [ $workingDaysInMonth -lt 20 -a $workingHours -lt 100 ]
 do
+	day=$(($day+1))
+	echo Day $day has started
    empPresentFlag=$((RANDOM%2))
    case $empPresentFlag in
    0)
