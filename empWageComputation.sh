@@ -22,6 +22,7 @@ do
 		 dailyWorkHours=0
        echo Employee is present
        dailyWage=$(($wagePerHour*$fullDayHour))
+		 echo daily wage - $dailyWage
        wagesForMonth=$(($wagesForMonth+$dailyWage))
 		 partTimeFlag=$((RANDOM%2))
 		 getWorkHours $partTimeFlag
@@ -31,6 +32,7 @@ do
             echo 'Employee did part time work'
             dailyWage=$(($dailyWage+$wagePerHour*8))
             wagesForMonth=$(($wagesForMonth+$wagePerHour*8))
+				echo daily wage - $dailyWage
             if [ $workingHours -gt 100 ]
             then
                break
@@ -39,6 +41,8 @@ do
       workingDaysInMonth=$(($workingDaysInMonth+1));;
     1)
       echo Employee is absent
+		dailyWage=0
+		echo Daily Wage - $dailyWage
     ;;
     *)
        echo Something went wrong
